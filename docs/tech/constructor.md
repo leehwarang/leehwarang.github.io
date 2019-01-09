@@ -105,6 +105,8 @@ var person2 = new Person('frank', 36);
 
 ## 이어서 학습할 것
 * 자바 스크립트 컬렉션과 데이터 처리 방법
+	* 자바 스크립트의 **가비지 컬렉션** 에 대해 공부하다가 좋은 글이 있어 첨부합니다. 
+		* http://theeye.pe.kr/archives/2872
 * miniproject: 로또 번호 생성기 만들어보기
 
 ---
