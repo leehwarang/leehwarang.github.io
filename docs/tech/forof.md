@@ -1,8 +1,8 @@
 ---
 layout: default
 title: for in 과 for of의 차이점
-parent: Javascript
-grand_parent: Tech
+parent: Basic
+grand_parent: Javascript
 nav_order: 3
 has_children: true
 ---

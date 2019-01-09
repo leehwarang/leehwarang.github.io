@@ -84,7 +84,7 @@
   }
 
   h1:first-of-type {
-    margin-top: 0.5em;
+    margin-top: 0.8em; //수정
   }
 
   dl {
@@ -109,4 +109,19 @@
     margin-left: 1em;
     font-weight: 500;
   }
+
+  h1, h2, h3, h4 {
+    font-weight: 900;        
+  }
+
+  p {
+      font-size: 18px;
+      line-height: 1.6;
+}
+  
+  blockquote p {
+      font-size: 24px;
+  }
+  
+  hr {margin: 64px 0}
 }

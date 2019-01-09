@@ -9,6 +9,8 @@ code {
   background-color: $code-background-color;
   border: $border $border-color;
   border-radius: $border-radius;
+  font-size: 14px; //추가
+  line-height: 1.6; //추가
 }
 
 pre.highlight {
