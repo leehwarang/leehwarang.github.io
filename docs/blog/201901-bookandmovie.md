@@ -5,6 +5,7 @@ parent: Me
 grand_parent: Blog
 nav_order: 1
 has_children: true
+comments: true
 ---
 
 # 2019년 1월의 책과 영화
