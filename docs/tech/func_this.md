@@ -1,8 +1,7 @@
 ---
 layout: default
 title: 함수 호출 패턴에 따라 달라지는 this
-parent: Basic
-grand_parent: Javascript
+parent: Javascript
 nav_order: 5
 has_children: true
 comments: true
@@ -132,21 +131,40 @@ console.log(p1.nage); //26
 
 ## [5] callback 함수에서 함수 호출시 this 바인딩
 
-기본적으로는 함수의 this 바인딩과 같은데, 제어권을 가진 함수가 callback의 this를 명시한 경우 그에 따른다.
-call, apply, bind 메서드 등을 이용하여 개발자가 별도로 this를 바인딩할 수 있다.
+```
+var value = 1;
 
-## 아직 call, apply, bind 메서드를 이해하지 못해서 코드는 추후에 추가 예정.ㄴ
+var obj = {
+    value : 100,
+    fun1 : function(){
+        setTimeout(function(){
+            console.log("callback's this : ", this); //window
+        },100);
+    }
+};
+
+obj.fun1();
+```
+
+> callback에서 함수를 호출했을 때도, **this는 전역 객체 window에 참조(바인딩)** 된다.
+
+하지만 callback의 제어권을 가진 함수가 this를 별도로 명시한 경우 그에 따르며, 개발자가 _call, apply, bind 메서드_ 등을 이용하여 this를 바인딩할 수 있다.
 
 ## 이어서 학습할 것
 
 - 함수 스코프, 실행 컨텍스트
+
   - https://poiemaweb.com/js-execution-context
+
 - 전역 객체
+
   - https://poiemaweb.com/js-global-object
-- 함수 호출 방식에 의해 결정되는 this
-  - https://poiemaweb.com/js-this
+
 - call,apply,bind 메서드를 사용해서 명시적으로 바인딩 하는 법
 
 ---
 
 ## 참고한 링크
+
+- 함수 호출 방식에 의해 결정되는 this
+  - https://poiemaweb.com/js-this
