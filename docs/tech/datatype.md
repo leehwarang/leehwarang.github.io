@@ -1,8 +1,7 @@
 ---
 layout: default
 title: 자바스크립트 데이터 타입과 연산자
-parent: Basic
-grand_parent: Javascript
+parent: Javascript
 nav_order: 3
 has_children: true
 comments: true

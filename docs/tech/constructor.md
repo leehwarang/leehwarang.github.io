@@ -1,8 +1,7 @@
 ---
 layout: default
 title: 객체를 생성하는 3가지 방법
-parent: Basic
-grand_parent: Javascript
+parent: Javascript
 nav_order: 2
 has_children: true
 comments: true

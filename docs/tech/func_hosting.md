@@ -1,8 +1,7 @@
 ---
 layout: default
 title: 함수 호이스팅
-parent: Basic
-grand_parent: Javascript
+parent: Javascript
 nav_order: 4
 has_children: true
 comments: true

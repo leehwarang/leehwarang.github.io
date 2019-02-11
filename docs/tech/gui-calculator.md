@@ -1,8 +1,7 @@
 ---
 layout: default
 title: GUI 계산기 구현하기
-parent: Mini projects
-grand_parent: Javascript
+parent: Javascript
 nav_order: 1
 has_children: true
 comments: true
