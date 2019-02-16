@@ -2,8 +2,8 @@
 layout: default
 title: 2019년 1월의 책과 영화
 parent: Me
-grand_parent: Blog
-nav_order: 1
+grand_parent: Blogs
+nav_order: 2
 has_children: true
 comments: true
 ---
