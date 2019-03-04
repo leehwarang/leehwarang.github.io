@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 백준 11721, 1085, 1193
-parent: Algorithm
+parent: Algorithm(Python)
 nav_order: 1
 has_children: true
 comments: true
@@ -13,11 +13,13 @@ comments: true
 [레파지토리는 여기.](https://github.com/leehwarang/WeeklyAlgo)
 일주일에 한 번씩 만나서 **1~5개**의 문제를 푸는데 난이도와 배치는 **쉬움-2, 중간-1, 어려움-2** 정도로 구성한다. 이 그룹에서 내가 제일 개발 쪼랩이기 때문에(다들 초고수임) 난 3개 + a를 푸는게 목표이다. 잘 할 욕심 내지말고 꾸준히만 하자. 지금 단계에서는 꾸준히 하는게 잘하는거다.
 
-아래 세 개의 문제를 풀었다.
+아래 다섯 개의 문제 중 세 개를 풀었다. 못 풀었던건 천천히 해보는걸로..
 
-- [백준 11721](https://www.acmicpc.net/problem/11721)
-- [백준 1085](https://www.acmicpc.net/problem/1085)
-- [백준 1193](https://www.acmicpc.net/problem/1193)
+- [백준 11721](https://www.acmicpc.net/problem/11721) (해결)
+- [백준 1085](https://www.acmicpc.net/problem/1085) (해결)
+- [백준 1193](https://www.acmicpc.net/problem/1193) (해결)
+- [백준 9461](https://www.acmicpc.net/problem/9461) (미해결)
+- [백준 2251](https://www.acmicpc.net/problem/2251) (미해결)
 
 ---
 
@@ -84,7 +86,7 @@ print(min(answer))
 
 ---
 
-## [2] 백준 1193
+## [3] 백준 1193
 
 - **문제**:
 
