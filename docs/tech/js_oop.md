@@ -54,7 +54,7 @@ comments: true
 
 ---
 
-#### constructor pattern
+## constructor pattern
 
 ```
 const Health = function(name,healthTime) {
@@ -85,7 +85,7 @@ console.dir()로 각 인스턴스를 살펴보면 **_name, healthTime, showHealt
 
 ---
 
-#### prototype pattern
+## prototype pattern
 
 ```
 const Health = function(name, healthTime) {
@@ -108,7 +108,7 @@ prototype pattern을 통해 만들어진 인스턴스 ho 내부에는 name, heal
 
 console.dir()로 각 인스턴스를 살펴보면 **_name, healthTime는 인스턴스의 프로퍼티로 들어가 있고, Health의 프로토타입 객체에 showHealth가 들어가있다._**
 
-#### Class - ES2015
+## Class - ES2015
 
 ```
 const Health = class {
