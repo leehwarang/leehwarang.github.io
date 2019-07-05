@@ -1,0 +1,9 @@
+.flex {
+  display: flex;
+  position: relative;
+  transition: all 1s;
+}
+
+.scale {
+  transform: scale(1.1);
+}
