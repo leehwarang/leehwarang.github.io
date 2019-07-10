@@ -4,12 +4,17 @@ import $ from "./mylibrary.js";
 class Pagination {
   constructor(inputTag) {
     this.navList = $(inputTag);
-    this.navItems = this.navList.children;
-    this.config;
+    this.navItems;
+    this.config = {
+      scale: "scale",
+      paginationAttr: "data-nav-index",
+      direction: 1,
+      moveValue: -1
+    };
     this.changeNotify;
   }
 
-  initData(data) {
+  render(data) {
     const result = data.reduce((acc, cur) => {
       acc += `<li class="item${cur.id}">${cur.title}</li>`;
       return acc;
@@ -18,11 +23,13 @@ class Pagination {
     this.navList.insertAdjacentHTML("beforeend", result);
   }
 
-  initSetting(obj, func) {
-    this.config = obj;
+  setState(showingIndex, func) {
+    const currentShowingIndex = showingIndex;
     this.changeNotify = func;
+
+    this.navItems = this.navList.children;
     this.setPaginationAttr(this.navItems, this.config.paginationAttr);
-    this.navItems[0].classList.add(this.config.scale);
+    this.navItems[currentShowingIndex - 1].classList.add(this.config.scale);
     this.attachEventToPagination();
   }
 
@@ -43,7 +50,7 @@ class Pagination {
   attachEventToPagination() {
     this.navList.addEventListener("click", e => {
       let navIndex = e.target.dataset.navIndex;
-      this.changeNotify(e.target, navIndex);
+      this.changeNotify(navIndex);
     });
   }
 }
