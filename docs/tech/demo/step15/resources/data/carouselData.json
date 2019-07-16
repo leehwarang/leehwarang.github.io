@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "Enjoy exclusive saving and rewards",
+    "imgurl": "./resources/images/card/Card_A01.jpg",
+    "desc": [
+      "Save on groceries and get an additional 10% off select sale items in all US Whole Food Market stores",
+      "Save 20% off diapers, baby food, and more",
+      "Earn 5% back at Amazon.com with the Amazon Prime Rewards Visa Card",
+      "Get exclusive deals and fiscounts and 30-minute early access to Lightning Deals"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Exclusive deals and offers",
+    "imgurl": "./resources/images/card/Card_B01.jpg",
+    "desc": [
+      "Save on groceries and get an additional 10% off select sale items in all US Whole Food Market stores",
+      "Save 20% off diapers, baby food, and more",
+      "Earn 5% back at Amazon.com with the Amazon Prime Rewards Visa Card",
+      "Get exclusive deals and fiscounts and 30-minute early access to Lightning Deals"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Prime Originals, movies and TV shows",
+    "imgurl": "./resources/images/card/Card_C01.jpg",
+    "desc": [
+      "Save on groceries and get an additional 10% off select sale items in all US Whole Food Market stores",
+      "Save 20% off diapers, baby food, and more",
+      "Earn 5% back at Amazon.com with the Amazon Prime Rewards Visa Card",
+      "Get exclusive deals and fiscounts and 30-minute early access to Lightning Deals"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Over 2 million songs ad free",
+    "imgurl": "./resources/images/card/Card_D01.jpg",
+    "desc": [
+      "Save on groceries and get an additional 10% off select sale items in all US Whole Food Market stores",
+      "Save 20% off diapers, baby food, and more",
+      "Earn 5% back at Amazon.com with the Amazon Prime Rewards Visa Card",
+      "Get exclusive deals and fiscounts and 30-minute early access to Lightning Deals"
+    ]
+  }
+]

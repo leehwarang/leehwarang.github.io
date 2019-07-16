@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Amazon clone</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./UI_component/carouselUI/carousel.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-item company-logo">
+        <img src="./resources/images/main/amazon-logo.png" alt="" />
+      </div>
+      <div class="header-item search-box-container">
+        <select id="select-choice" class="select-classification">
+          <option value="" selected="selected">모두</option>
+          <option value="학생">학생</option>
+          <option value="회사원">회사원</option>
+          <option value="Kindle 스토어">Kindle 스토어</option>
+        </select>
+        <input type="text" class="search-form" />
+        <button class="header-item btn-search">
+          <img src="./resources/images/main/search-icon.png" alt="" />
+        </button>
+        <div>
+          <ul class="modal-autocomplete"></ul>
+          <ul class="modal-recent"></ul>
+        </div>
+      </div>
+      <div class="header-item service-info">
+        <img src="./resources/images/banner/detail_banneer.png" alt="" />
+      </div>
+    </div>
+
+    <div class="card-wrap">
+      <div class="navigation">
+        <ul class="navigation-list"></ul>
+      </div>
+      <div class="content">
+        <div class="carousel-wrap">
+          <ul class="carousel"></ul>
+        </div>
+        <div class="carousel-btn">
+          <img
+            src="./resources/images/left-chevron.svg"
+            alt=""
+            class="btn-common btn-prev"
+          />
+          <img
+            src="./resources/images/right-chevron.svg"
+            alt=""
+            class="btn-common btn-next"
+          />
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

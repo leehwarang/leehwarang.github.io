@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "False Step",
+    "desc": "Stay calm, keep smiling, and watch your step. In this marriage of secrets and lies, nothing is what it seems.",
+    "imgName": "/amazon/book/bestseller/book1.png"
+  },
+  {
+    "id": 2,
+    "title": "It's a Long Story: My Life",
+    "desc": "The definitive autobiography of Willie Nelson.",
+    "imgName": "/amazon/book/bestseller/book2.png"
+  },
+  {
+    "id": 3,
+    "title": "Along the Broken Bay",
+    "desc": "From the bestselling author of A Pledge of Silence comes a story of resistance, intrigue, and risking it all in the WWII Philippines.",
+    "imgName": "/amazon/book/bestseller/book3.png"
+  },
+  {
+    "id": 4,
+    "title": "Trance (Alex Madison Book 1)",
+    "desc": "A tense, original thriller that perfectly blends the nail-biting suspense and shocks of Silence of the Lambs and Shutter Island. —John Marrs",
+    "imgName": "/amazon/book/bestseller/book4.png"
+  },
+  {
+    "id": 5,
+    "title": "Cottage by the Sea: A Novel",
+    "desc": " A seaside town helps one young woman reclaim the light after darkness in an uplifting novel from #1 New York Times bestselling author Debbie Macomber.",
+    "imgName": "/amazon/book/bestseller/book5.png"
+  }
+]
