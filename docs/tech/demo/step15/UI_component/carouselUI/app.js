@@ -8,6 +8,6 @@ export default function loadCarouselUI() {
   const controller = new Controller({ carousel, pagination });
 
   window.addEventListener("DOMContentLoaded", () => {
-    controller.getJsonData("../../resources/data/carouselData.json");
+    controller.getJsonData("./resources/data/carouselData.json");
   });
 }
