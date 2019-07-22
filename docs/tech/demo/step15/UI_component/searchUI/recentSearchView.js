@@ -13,22 +13,17 @@ class RecentSearchView extends ModalView {
   }
 
   makeliTemplate() {
-    let newEl, textEl;
     const arr = [...this.recentKeyword];
-
+    let result = "";
     if (arr.length === 0) {
-      newEl = document.createElement("li");
-      textEl = document.createTextNode(`최근 검색어 없음`);
-      newEl.appendChild(textEl);
-      this.modal.append(newEl);
+      result = `<li>최근 검색어 없음</li>`;
     } else {
-      arr.forEach(el => {
-        newEl = document.createElement("li");
-        textEl = document.createTextNode(el);
-        newEl.appendChild(textEl);
-        this.modal.append(newEl);
-      });
+      result = arr.reduce((acc, cur) => {
+        acc += `<li>${cur}</li>`;
+        return acc;
+      }, "");
     }
+    this.modal.insertAdjacentHTML("beforeend", result);
   }
 
   makeModalContent() {

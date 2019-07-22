@@ -12,14 +12,12 @@ class AutoCompleteView extends ModalView {
   }
 
   makeliTemplate(arr) {
-    let newEl, textEl;
+    const result = arr.reduce((acc, cur) => {
+      acc += `<li>${cur}</li>`;
+      return acc;
+    }, "");
 
-    arr.forEach(el => {
-      newEl = document.createElement("li");
-      textEl = document.createTextNode(el);
-      newEl.appendChild(textEl);
-      this.modal.append(newEl);
-    });
+    this.modal.insertAdjacentHTML("beforeend", result);
   }
 
   makeModalContent(arr) {

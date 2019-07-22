@@ -1,10 +1,10 @@
 class Controller {
-  constructor(obj) {
+  constructor({ searchView, autoCompleteView, recentSearchView }) {
     this.data;
     this.filterdData = [];
-    this.searchView = obj.searchView;
-    this.autoCompleteView = obj.autoCompleteView;
-    this.recentSearchView = obj.recentSearchView;
+    this.searchView = searchView;
+    this.autoCompleteView = autoCompleteView;
+    this.recentSearchView = recentSearchView;
 
     this.currentMode;
     this.modeType = {
@@ -16,17 +16,11 @@ class Controller {
     };
   }
 
-  getData(url) {
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        this.data = data;
-
-        this.initController();
-        this.initSearchView();
-        this.initAutoCompleteView();
-        this.initRecentSearchView();
-      });
+  init() {
+    this.initController();
+    this.initSearchView();
+    this.initAutoCompleteView();
+    this.initRecentSearchView();
   }
 
   setCurrentMode(changedmode) {
@@ -36,7 +30,6 @@ class Controller {
   initController() {
     this.setCurrentMode(this.modeType.pending);
 
-    //keydown Event를 autoCompleteView, recentSearchView에 모두 다는 것 보다 Controller에 다는게 더 낫다고 판단
     document.addEventListener("keydown", e => {
       if (this.currentMode === this.modeType.focusing) {
         this.recentSearchView.setHighlightStatus(e.code);
@@ -61,15 +54,28 @@ class Controller {
     this.recentSearchView.init(this.recentSearchViewHandler);
   }
 
-  makeFilterdData(inputStr) {
-    const targetLength = inputStr.length;
-    const baseData = [...this.data.product];
-
-    return baseData.filter(data => data.slice(0, targetLength) === inputStr);
+  makeSuggestionArr(jsonData) {
+    const suggestions = jsonData.body.suggestions;
+    const arr = suggestions.reduce((acc, cur) => {
+      acc.push(cur.value);
+      return acc;
+    }, []);
+    return arr;
   }
 
-  isEmptyArr(arr) {
-    return arr.length === 0;
+  async requestJsonData(url) {
+    try {
+      const response = await fetch(url);
+      const jsonData = await response.json();
+
+      if (jsonData.statusCode === 404) throw new Error("FAILED_TO_FETCH.");
+      if (jsonData.statusCode !== 200)
+        throw new Error(`STATUS_CODE : ${jsonData.statusCode}`);
+      const suggestionArr = this.makeSuggestionArr(jsonData);
+      this.autoCompleteView.makeModalContent(suggestionArr);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   searchViewHandler(changedmode, inputStr = "") {
@@ -77,11 +83,9 @@ class Controller {
 
     const mapFunc = {
       entering: inputStr => {
+        const baseUrl = `https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/amazon_autocomplete?query=`;
         this.recentSearchView.hideModalWindow();
-
-        this.filterdData = this.makeFilterdData(inputStr);
-        if (this.isEmptyArr(this.filterdData)) return;
-        else this.autoCompleteView.makeModalContent(this.filterdData);
+        this.requestJsonData(`${baseUrl}${inputStr}`);
       },
 
       completing: () => {

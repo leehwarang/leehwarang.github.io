@@ -8,9 +8,10 @@ class ModalView {
     this.config = {
       className: "highlight",
       unselectedColor: "white",
-      selectedColor: "#EEEEEE",
+      selectedColor: "#eee",
       upDirection: -1,
-      downDirection: 1
+      downDirection: 1,
+      initHighlightIndex: -1
     };
   }
 
@@ -29,7 +30,7 @@ class ModalView {
   }
 
   initHighlightIndex() {
-    this.currentHighlightIndex = -1;
+    this.currentHighlightIndex = this.config.initHighlightIndex;
   }
 
   removeChildAll() {
@@ -96,7 +97,7 @@ class ModalView {
   }
 
   highlightIndexisFirst() {
-    return this.currentHighlightIndex === -1;
+    return this.currentHighlightIndex === this.config.initHighlightIndex;
   }
 
   highlightIndexisLast(lastIndex) {
@@ -107,11 +108,14 @@ class ModalView {
     this.removeHighlight();
     this.currentHighlightIndex += this.config.upDirection;
 
-    if (this.highlightIndexisFirst()) {
-      this.initHighlightIndex();
-    } else {
-      this.addHighlight();
-    }
+    if (this.highlightIndexisFirst()) this.initHighlightIndex();
+    else this.addHighlight();
+  }
+
+  execArrowDown() {
+    this.removeHighlight();
+    this.currentHighlightIndex += this.config.downDirection;
+    this.addHighlight();
   }
 
   setHighlightStatus(keyCode) {
@@ -123,16 +127,13 @@ class ModalView {
     const lastIndex = this.getLastIndex();
 
     if (this.highlightIndexisFirst()) {
-      this.currentHighlightIndex += 1;
+      this.currentHighlightIndex += this.config.downDirection;
       if (keyCode === "ArrowDown") this.addHighlight();
     } else if (this.highlightIndexisLast(lastIndex)) {
       if (keyCode === "ArrowUp") this.execArrowUp();
     } else {
-      if (keyCode === "ArrowDown") {
-        this.removeHighlight();
-        this.currentHighlightIndex += this.config.downDirection;
-        this.addHighlight();
-      } else if (keyCode === "ArrowUp") this.execArrowUp();
+      if (keyCode === "ArrowDown") this.execArrowDown();
+      else if (keyCode === "ArrowUp") this.execArrowUp();
     }
   }
 }
