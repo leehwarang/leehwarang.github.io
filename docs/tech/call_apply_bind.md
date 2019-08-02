@@ -2,7 +2,7 @@
 layout: default
 title: this를 변경하는 call(), apply(), bind()
 parent: Javascript
-nav_order: 8
+nav_order: 7
 has_children: true
 comments: true
 ---
