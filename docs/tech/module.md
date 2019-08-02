@@ -2,7 +2,7 @@
 layout: default
 title: 나의 자바스크립트 모듈 체험기(feat. require와 import)
 parent: Javascript
-nav_order: 11
+nav_order: 7
 has_children: true
 comments: true
 ---

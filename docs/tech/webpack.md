@@ -2,7 +2,7 @@
 layout: default
 title: 바벨과 웹팩
 parent: Javascript
-nav_order: 10
+nav_order: 8
 has_children: true
 comments: true
 ---

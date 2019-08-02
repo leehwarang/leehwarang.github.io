@@ -2,14 +2,12 @@
 layout: default
 title: 자바스크립트 데이터 타입과 연산자
 parent: Javascript
-nav_order: 3
+nav_order: 1
 has_children: true
 comments: true
 ---
 
 # 자바스크립트 데이터 타입과 연산자
-
-**_참고:_** 인사이드 자바 스크립트의 3장(자바스크립트 데이터 타입과 연산자)과 인프런의 Javascript 핵심 개념 알아보기 - JS Flow를 듣고 헷갈리는 개념을 정리한 글 입니다. 혹시 잘못된 내용이 있다면 댓글이나 hwrng2@gmail.com로 알려주세요. 감사합니다. :)
 
 ---
 
