@@ -78,7 +78,7 @@ export default Pagination; // pagination.js
 > 노드에서 동작하는 프로그램을 만들 때 import(ES Modules)를, 브라우저에서 동작하는 프로그램을 만들 때 require(CommandJS)를 사용할 수 없나요?
 
 최신 노드에서는 ES6 문법을 사용할 수 있지만, 노드는 CommandJS 기반의 모듈 시스템을 사용하기 때문에 ES Modules을 지원하지 않는다. 다만 **바벨(Babel)** 을 통해 ES Modules를 CommandJS로 트랜스 파일링하여 사용할 수 있다.
-마찬가지로 브라우저에서도 CommandJS를 기본적으로 지원하지는 않지만 바벨로 트랜스 파일링하여 사용할 수 있습니다.
+마찬가지로 브라우저에서도 CommandJS를 기본적으로 지원하지는 않지만 바벨로 트랜스 파일링하여 사용할 수 있다.
 
 ## 4. 차이점
 

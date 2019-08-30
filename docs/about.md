@@ -6,3 +6,5 @@ has_children: true
 permalink: /docs/about
 comments: true
 ---
+
+안녕하세요. 이화랑 입니다.
