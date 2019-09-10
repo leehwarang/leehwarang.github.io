@@ -1,8 +1,8 @@
-<!-- ---
+---
 layout: default
-title: Algorithm(Python)
+title: Algorithm
 parent: Tech
-nav_order: 3
+nav_order: 5
 has_children: true
 comments: true
---- -->
+---
