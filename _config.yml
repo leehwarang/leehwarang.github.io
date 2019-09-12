@@ -30,6 +30,7 @@ theme: #just-the-docs
 #theme: minima
 plugins:
   - jekyll-feed
+  - jemoji
 
 search_enabled: true
 
