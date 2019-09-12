@@ -80,6 +80,7 @@ comments: true
           {% endif %}
         </div>
       </div>
+
       <div class="main-content">
         {% unless page.url == "/" %} {% if page.parent %}
         <nav class="breadcrumb-nav">
@@ -101,7 +102,11 @@ comments: true
             </li>
           </ol>
         </nav>
-        {% endif %} {% endunless %}
+        {% endif %} {% endunless %} {% if page.date %}
+        <li class="post-date">
+          <span>POST date: {{ page.date }}</span>
+        </li>
+        {% endif %}
         <div class="page-content">
           {{ content }}
 
