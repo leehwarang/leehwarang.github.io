@@ -5,6 +5,7 @@ parent: React
 nav_order: 2
 has_children: true
 comments: true
+date: 2019-08-20
 ---
 
 # CRA 없이 리액트 프로젝트 시작하기

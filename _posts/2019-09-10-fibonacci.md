@@ -5,7 +5,7 @@ parent: Algorithm
 nav_order: 1
 has_children: true
 comments: true
-date: 2019-09-10 18:58:02 +0900
+date: 2019-09-10
 ---
 
 # 피보나치 수열을 다양한 방법으로 구하기

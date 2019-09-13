@@ -5,6 +5,7 @@ parent: Node.js
 nav_order: 1
 has_children: true
 comments: true
+date: 2019-09-01
 ---
 
 # 서버 관련 용어 정리
