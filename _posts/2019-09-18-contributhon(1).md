@@ -18,8 +18,6 @@ comments: true
 
 하지만 얼마 지나지 않아 `Mocha를 배우고 싶다! vs Mocha 오픈소스에 기여하겠다!` 는 완전히 다른 맥락인 것을 깨닫게 되었다. 난 전자 >> 후자였는데, 이 프로젝트는 당연히 전자 <<<< 후자에 초점이 맞춰진 것. (그나마 이 차이를 시작할 때 눈치채서 다행이다.)
 
-<iframe src="https://giphy.com/embed/NZfgAFsnQBEI" width="480" height="361" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/crying-NZfgAFsnQBEI">via GIPHY</a></p>
-
 ## 오픈소스 기여의 의미를 이해하다
 
 방향을 어떻게 잡을지 고민하던 또 어느 날. 아웃사이더님(멘토님)이 **"개발을 하면서 오픈소스 생태계를 어떻게 바라보고 기여해야 하는지"** 에 대해 이야기 해주신 [발표 영상](https://www.youtube.com/watch?v=uq0k3kUHcBs)을 보았는데 적지 않은 충격을 받았다. 개발자, 그들이 속한 IT 회사들은 오픈 소스에 의존하여 코딩하는데 오픈 소스 생태계가 이렇게 척박하다고? 프론트엔드 개발자라면 대부분 사용하는 webpack, babel, express가 이렇게 소수의 컨트리뷰터에 의존해서 만들고 있는지 처음 알았고 그들이 얼마나 큰 가치를 책임지며 살고 있으신지 상상도 하지 못할 정도였다.
