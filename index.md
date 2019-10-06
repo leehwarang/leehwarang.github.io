@@ -22,7 +22,7 @@ permalink: /
 
 {: .fs-4 .fw-300 }
 
-[view Facebook Profile](https://www.facebook.com/leewharang){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [view Github Account](https://github.com/leehwarang){: .btn .fs-5 }
+[view Github Account](https://github.com/leehwarang){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }[view LinkedIn Profile](https://www.linkedin.com/in/hwarang-lee-27890a187/){: .btn .fs-5 }
 
 ---
 
