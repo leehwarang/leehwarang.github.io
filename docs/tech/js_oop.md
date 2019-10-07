@@ -77,7 +77,7 @@ console.log(ho.showHealth === ha.showHealth) // false
 
 하지만 같은 생성자 함수로 여러개의 인스턴스를 만들었을 때는 단점이 있다. showHealth()는 인스턴스 내에서 같은 기능을 하는 함수인데, **각 인스턴스 내에 공간이 할당되어 메모리가 낭비된다.**
 
-    <img width="496" alt="constructor pattern" src="https://user-images.githubusercontent.com/18614517/56629651-057ad700-6689-11e9-9419-2564b337bbd4.png">
+<img width="496" alt="constructor pattern" src="https://user-images.githubusercontent.com/18614517/56629651-057ad700-6689-11e9-9419-2564b337bbd4.png">
 
 console.dir()로 각 인스턴스를 살펴보면 **_name, healthTime, showHealth 모두 프로퍼티로 들어가 있는 것을 볼 수 있다._**
 
@@ -125,6 +125,6 @@ const ha = new Health("michelle", "15:15");
 console.log(ho.showHealth === ha.showHealth) // true
 ```
 
-**prototype pattern과 내부적으로 동일하다.** 하지만 ES2015에서 간편하게 만들기 위해서 등장한 syntatic sugar이다.
+**prototype pattern과 내부적으로 동일하다.** 하지만 ES2015에서 간편하게 만들기 위해서 등장한 syntactic sugar이다.
 
 <img width="421" alt="class" src="https://user-images.githubusercontent.com/18614517/56629933-550dd280-668a-11e9-8b9b-50300052a994.png">
