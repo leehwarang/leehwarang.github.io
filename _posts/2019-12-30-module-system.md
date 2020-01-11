@@ -8,6 +8,8 @@ comments: true
 date: 2019-12-30
 ---
 
+최근 수정일: 2020-01-11
+
 # Javascript의 Module System
 
 프로그래밍을 하다보면 하나의 파일에 모든 코드를 다 넣을 수 없다는 것을 알게된다. 물론 아주 작은 프로그램은 가능하겠지만 일반적으로 프로그램이 커지면 특정 기능이나 클래스 등을 기준으로 파일을 나눈다. 따라서 **어떤 파일에서 다른 파일의 코드(함수, 변수, 클래스 등)을 불러오는 일은 필수적이다.** 내가 짠 코드 뿐만 아니라 수 많은 패키지, 라이브러리를 불러와서 사용해야 하기 때문에 _사용하는 프로그래밍 언어와 환경에서 '모듈 시스템'이 어떻게 동작하는지 잘 알고 있는 것이 좋다._
@@ -188,15 +190,14 @@ console.log(age);
 
 name은 michelle, age는 26 이라는 값이 출력된다. 여기서 _b.js 에는 name 변수가 없는데 어떻게 michelle 을 출력할 수 있었을까? age 변수는 왜 20이 아닌 26이 출력 했을까?_ 바로 **우리가 불러온 script 파일은 독립적인 스코프(유효 범위)를 가지고 있지 않기 때문이다.** a.js 와 b.js 파일에서 사용한 변수는 같은 전역 공간에 저장된다.
 
-'모듈 시스템'의 기초는 어떤 코드에 다른 파일의 코드를 불러와야 하는데, 만약 불러온 코드에 내가 사용한 변수와 같은 이름의 변수가 있다면 후자에 할당된 값이 사용되는 등의 문제가 발생하기 때문에 두 파일의 독립성이 성립하지 않는다. 따라서 기본적으로 브라우저에서 사용하는 javascript 는 '모듈화' 개념을 사용할 수 없었다.
-
-![IMG_0031](https://user-images.githubusercontent.com/18614517/71586393-6a15fc00-2b5d-11ea-8974-e78387162b81.jpg)
+여기까지 글을 읽고 누군가는 _각 파일이 독립적인 스코프를 가지지 않는게 뭐가 문제야? ☹️_ 라 할 수도 있겠지만 사실 이건 굉장히 크리티컬한 문제다. "우린 다른 파일에 있긴 하지만 브라우저에서 불러온다면 같은 전역 공간을 공유해"가 아니라 "각 파일은 기본적으로 독립적인 공간을 가지고 있고 필요할 때만 서로를 불러오도록 하자!" 로 가치관이 달라져야 했다.
 
 ---
 
 ## script type="module"
 
-앞서 설명한 문제를 해결하기 위해 _브라우저에서 로드하는 script 파일도 독립적인 스코프를 가지는 하나의 모듈로써 동작하게 하자!_ 라는 방법이 생겨나고 있다. 그 첫 번째 방법은 script의 type을 module 로 설정하는 것이다.
+_브라우저에서 로드하는 script 파일도 독립적인 스코프를 가지는 하나의 모듈로써 동작하게 하자!_ 를 위한 첫 번째 방법은 script의 type을 **module** 로 설정하는 것이다.
+**Node 에서는 하나의 파일을 하나의 모듈로 간주한다.** 고 했던 말의 의미는 하나의 파일이 독립적인 스코프를 가진다는 의미였다.
 
 ```
 <!DOCTYPE html>
@@ -231,13 +232,17 @@ console.log(name);
 
 <center> 실행 결과 </center><br>
 
-script의 type만 module로 적어주고, a.js 와 b.js 는 배경 지식에 사용한 코드를 그대로 사용했다. 이번엔 에러 메세지가 나오지 않고, 두 번째로 불러온 b.js 에 있는 name값이 잘 나온다. 다만, 이 방식까지만 사용했을 때 각 파일이 독립적인 스코프를 가지긴 하지만 앞서 불러온 a.js가 b.js의 코드를 사용할 수 없다는 단점이 있다.
+script의 type만 module로 적어주고, a.js 와 b.js 는 배경 지식에 사용한 코드를 그대로 사용했는데 이번엔 에러 메세지가 나오지 않는다. 이전에는 a.js 와 b.js 가 같은 공간을 공유했고 const는 재선언할 수 없는 식별자이기 때문에 에러가 발생했다. 하지만 지금은 두 번째로 불러온 b.js에 있는 name 값이 나오는 것을 볼 수 있다. 브라우저 입장에서 a.js 보다 b.js 가 나중에 로드 되었기 때문에 _console.log(name)를 찍으려고 할 때, 어떤 name 을 불러와야 하지?_ 라고 고민하게 되는데 **더 가까운 스코프**에 있는 b.js의 name 을 출력하게 된다.
+
+다만, 이 방식까지만 사용했을 때 각 파일이 독립적인 스코프를 가지긴 하지만 앞서 불러온 a.js가 b.js의 코드를 사용할 수 없다는 단점이 있다.
 
 ---
 
-## export
+## ES6 Modules
 
-ES6에 [export문](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/export)이 등장했다. javascript 모듈에서 변수, 함수 등 값을 내보낼 때 사용한다.
+script type="module" 방법을 더 개선하여 자바스크립트 ES6에 Modules 가 등장했고 표준으로 자리 잡았다. 여러 개의 객체를 모듈로써 내보낼 때는 **export**, 하나의 객체를 내보낼 때는 **export default** / 불러올 때는 동일하게 **import** 를 사용한다.
+
+### export를 통해 내보내고 import 를 통해 불러오기
 
 ```
 <!DOCTYPE html>
@@ -255,64 +260,117 @@ ES6에 [export문](https://developer.mozilla.org/ko/docs/Web/JavaScript/Referenc
 </html>
 ```
 
-### a.js 와 b.js 의 내용만 바꿔서 직접 해보기(1)
-
 ```
 // a.js
 
-export default name = "michelle";
-```
-
-```
-// b.js
-
-import name from "./a.js";
-console.log(name); // "michelle"
-```
-
-b.js 에서 name 대신 어떤 변수를 써도 a.js에 있는 name 값이 들어간다. `export default`로 내보낸다는 의미 자체가 하나를 내보내는 것이기 때문에 받는 쪽에서는 무엇으로 받던 상관 없다.
-
-### a.js 와 b.js 의 내용만 바꿔서 직접 해보기(2)
-
-```
-// a.js
-
-import greeting from "./b.js";
-console.log(greeting);
-```
-
-```
-// b.js
-export default function greeting() {
-  console.log("my name is michelle.");
-}
-```
-
-b.js 가 a.js 보다 나중에 로드되지만 a.js 안에 있는 import 구문이 b.js의 greeting 함수를 먼저 불러올 수 있다. 두 예제 모두 `export default` 를 사용했는데, 이는 하나의 표현식(변수, 함수, 클래스 등)만을 내보낼 때 사용한다.
-
-### a.js 와 b.js 의 내용만 바꿔서 직접 해보기(3)
-
-```
-// a.js
-
+export const name = "michelle";
 export const job = "programmer";
-export const petName = "leeruru";
-export function test() {
-  console.log("this is test.");
+const age = 30; // age 는 내보내지 않는다!
+export function greeting() {
+console.log("hello!");
 }
 ```
 
 ```
 // b.js
 
-import { job, petName, test } from "./a.js";
+import * as result from "./a.js";
 
-console.log(job);
-console.log(petName);
-console.log(test);
+console.log(result);
+console.log(result.name);
 ```
 
-하나의 표현식이 아닌 여러 개의 표현식을 내보낼 때는 `export default` 대신 `export`를 사용하고, 불러올 때도 어떤 표현식을 불러올 것인지 import문을 통해 정확히 적어줘야한다. `import { job as j } from "./a.js";` 와 같이 as를 이용해 다른 이름으로 받을 수는 있다.
+![image](https://user-images.githubusercontent.com/18614517/72203276-bdb50d80-34ac-11ea-99df-4bc8b1286cb1.png)
+
+<center> 실행 결과 </center><br>
+
+- 내보낼 때 헷갈리는 문법: Node 에서는 export.name 처럼 export 키워드 다음에 _._ 을 사용했지만, ES Modules 에서는 export 키워드 다음에 _띄어쓰기_ 를 사용한다.
+
+- 불러올 때 헷갈리는 문법: 대상 파일(a.js) 에서 내보낸 모든 것을 불러오고자 할 때, Node 에서는 `import 받을 변수이름 from '대상 파일'` 을 사용했지만 ES Modules 에서는 그렇게 사용하면 에러가 발생한다. (직접 실행해서 어떤 에러가 나는지 확인해보자.) ES Modules 에서는 b.js 처럼 모든 것을 불러온다는 의미인 _\*_, 불러온 모든 것을 어떤 변수에 담아 사용한다는 의미인 _as_ 를 사용한다.
+
+```
+// b.js
+
+import { name, greeting } from "./a.js";
+console.log(name);
+console.log(greeting());
+```
+
+그래도 불러오고 싶은 것만 골라서 가져오는 **Object destructuring(객체 구조분해할당)** 은 사용할 수 있다. 정말 헷갈린다... 🤯
+
+### export default를 통해 내보내고 import 를 통해 불러오기
+
+이번 예시에서는 내보내는 코드를 b.js 에, 불러오는 코드를 a.js에 넣어보겠다.
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./a.js" type="module"></script>
+    <script src="./b.js" type="module"></script>
+  </body>
+</html>
+```
+
+```
+// b.js
+
+export default {
+  name: "michelle",
+  petName: "ruru"
+};
+
+```
+
+```
+// a.js
+
+import result from "./b.js";
+
+console.log(result);
+```
+
+![image](https://user-images.githubusercontent.com/18614517/72203624-62394e80-34b1-11ea-9299-b73ccde6b84a.png)
+
+<center> 실행 결과 </center><br>
+
+_export default_ 는 하나의 객체로만 내보낼 때 사용한다. 만약 여러개의 export default 를 사용했다면 아래와 같은 에러를 볼 수 있다.
+
+```
+// b.js
+
+export default {
+  name: "michelle",
+  petName: "ruru"
+};
+
+export default function hello() {
+  console.log('ruru like sweet potato');
+}
+```
+
+![image](https://user-images.githubusercontent.com/18614517/72203657-cbb95d00-34b1-11ea-8e9b-4777d752333a.png)
+
+<center> 실행 결과 </center><br>
+
+- 불러올 때 헷갈리는 문법: ES6 Modules 에서 export 로 내보냈을 때는 `import 받을 변수이름 from '대상 파일'` 처럼 불러올 수 없었는데, export default 로 내보냈을 때는 위 문법처럼 불러오는게 가능하다. 아마 export 로 내보낼 걸 불러왔을 때는 타입이 Module 이였고, export default 로 내보내는 걸 불러왔을 때는 타입이 object 였는데 그 차이 때문이 아닐까 싶다..
+
+추가로 export default 로 내보낼 때는 이름(변수명)을 붙이지 않고 내보내는게 일반적이며, 불러올 때 어떤 변수 이름으로든지 불러올 수 있다. export default 라는게 이 파일에서 하나의 객체만 내보낸다는 것을 명시하기 때문에 받는 쪽에서 마음대로 선언해서 사용할 수 있도록 하는 것이다.
+
+---
+
+## 마무리
+
+지금까지 Javascript 언어가 Node(비브라우저) 환경 또는 브라우저 환경에서 사용될 때, 어떻게 서로 다른 파일을 불러오고 사용하는지에 관한 Module System을 알아보았다.
+특히 브라우저 환경에서 ES Modules 이 어떤 배경으로 등장하게 되었는지 그 history 를 자세히 설명하려고 노력했다. 기술을 잘 배우고 활용할 수 있는 방법은 이 기술이 왜 등장했는지를 이해하는 것이라 생각했다.
+
+아마 비슷하면서도 문법이 조금씩 달라서 익숙하지 않은 사람들은 굉장히 헷갈릴 거라고 생각한다. (아직 헷갈리는 1인 = me.) 잘못 사용할 때마다 다시 살펴보고 익숙해져도 되지만,이렇게 한 번 정리해놓으면 큰 도움이 될 것 같다!
 
 <!-- 물론 브라우저에서 CommonJS를, 노드에서 ES modules 를 사용할 수도 있다. 요건 나중에.
-https://ui.toast.com/weekly-pick/ko_20190805/ -->
+참고: https://ui.toast.com/weekly-pick/ko_20190805/ -->
