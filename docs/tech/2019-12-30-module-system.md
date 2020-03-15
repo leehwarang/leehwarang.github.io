@@ -127,7 +127,7 @@ const { DefinePlugin } = require('webpack');
 
 ---
 
-# 2. 비브라우저 환경에서 다른 javascript 파일의 코드 사용하기
+# 2. 브라우저 환경에서 다른 javascript 파일의 코드 사용하기
 
 ## 배경 지식
 
