@@ -8,19 +8,11 @@ nav_order: 1
 permalink: /
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NnSb7oJM2l4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 {: .text-grey-dk-100}
 
 # 안녕하세요.
 
-{: .fs-7 }
-
-만들기를 좋아하고 삶에서 일의 의미와 가치를 중요하게 생각하는 _이화랑(Michelle Lee)_ 입니다.
-
-새로운 지식을 배울 때 수동적으로 받아들이기보다는 의문을 가지고 다양한 관점에서 생각해 보려고 노력합니다. 스스로의 학습 방식이 개발하는 과정을 더 풍부하게 만들어 준다고 믿고 있으며 앞으로도 이 여정을 이어 나가기를 소망합니다.
-
-공통된 목적이 있는 사람들과 함께 지낼 때 행복감을 느끼며, 편한 사람들과 마시는 맥주 🍺 와 커피 ☕️ 를 가장 좋아해요. 저에 대해 궁금한 점이 있으시면 <hwrng2@gmail.com>로 연락 주세요. 감사합니다.
+만들기를 좋아하고 삶에서 일의 의미와 가치를 중요하게 생각하는 _이화랑(Michelle Lee)_ 입니다. 프론트엔드 개발자로 일하고 있으며, 기술과 비지니스에 관심이 많습니다. 코드나 글을 쓰거나 영상을 만들면서 시간을 보내요. 공통된 목적이 있는 사람들과 함께 지낼 때 행복감을 느끼며, 편한 사람들과 마시는 맥주 🍺 와 커피 ☕️ 를 가장 좋아합니다. 저에 대해 궁금한 점이 있으시면 <hwrng2@gmail.com>로 연락 주세요. 감사합니다.
 
 {: .fs-4 .fw-300 }
 
