@@ -16,7 +16,7 @@ permalink: /
 
 {: .fs-4 .fw-300 }
 
-[view Github Account](https://github.com/leehwarang){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }[view LinkedIn Profile](https://www.linkedin.com/in/hwarang-lee-27890a187/){: .btn .fs-5 }
+[view Github Account](https://github.com/leehwarang){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }[view LinkedIn Profile](https://www.linkedin.com/in/hwarang-lee-27890a187/){: .btn .fs-5 }[view Youtube Channel](https://www.youtube.com/channel/UCn_GPmB3ZqAC-dhbycfSbJQ?view_as=subscriber){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ---
 
