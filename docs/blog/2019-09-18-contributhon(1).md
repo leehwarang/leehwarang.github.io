@@ -1,9 +1,9 @@
 ---
 layout: default
 title: 오픈소스 컨트리뷰터가 될 수 있을까? (feat. 2019 컨트리뷰톤)
-parent: Opensource
+parent: Opensource & Community
 grand_parent: Blog
-nav_order: 1
+nav_order: 3
 has_children: true
 comments: true
 ---

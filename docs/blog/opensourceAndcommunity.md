@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Me
+title: Opensource & Community
 parent: Blog
-nav_order: 1
+nav_order: 3
 has_children: true
 ---

@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Community
-parent: Blog
-nav_order: 2
+title: HTML/CSS
+parent: Tech
+nav_order: 4
 has_children: true
 ---

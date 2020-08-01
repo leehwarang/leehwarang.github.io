@@ -1,9 +1,9 @@
 ---
 layout: default
 title: 모르는 것을 알아가는게 중요한거지! (feat. 컨트리뷰톤 2주차)
-parent: Opensource
+parent: Opensource & Community
 grand_parent: Blog
-nav_order: 2
+nav_order: 4
 has_children: true
 comments: true
 ---

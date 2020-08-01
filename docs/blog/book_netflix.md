@@ -1,14 +1,14 @@
 ---
 layout: default
-title: 넷플릭스 - 스타트업의 전설
-parent: Me
+title: Book) 넷플릭스 - 스타트업의 전설
+parent: Inspiration
 grand_parent: Blogs
 nav_order: 2
 has_children: true
 comments: true
 ---
 
-# 넷플릭스 - 스타트업의 전설
+# Book) 넷플릭스 - 스타트업의 전설
 
 <img width="354" alt="default" src="https://user-images.githubusercontent.com/18614517/52902281-00954380-3252-11e9-9054-5ff32b15abb2.png">
 

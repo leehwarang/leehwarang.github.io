@@ -1,9 +1,9 @@
 ---
 layout: default
 title: 2018 Djangogirls Seoul Organizor (2)
-parent: Community
+parent: Opensource & Community
 grand_parent: Blog
-nav_order: 1
+nav_order: 2
 has_children: true
 comments: true
 ---
