@@ -7,6 +7,7 @@ nav_order: 3
 has_children: true
 comments: true
 date: 2021-02-28
+image: /assets/images/thumbnails/2021-02-28-ux-principal.jpeg
 ---
 
 # 스티브 크룩, 『(사용자를) 생각하게 하지마』

@@ -7,6 +7,7 @@ nav_order: 4
 has_children: true
 comments: true
 date: 2021-03-24
+image: /assets/images/thumbnails/2021-03-24how-to-be-better-people.jpeg
 ---
 
 # 아빈저연구소, 『상자 밖에 있는 사람』
