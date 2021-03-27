@@ -5,13 +5,12 @@ comments: true
 <!DOCTYPE html>
 
 <html lang="en-us">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@devhwarari" />
   <meta name="twitter:creator" content="@devhwarari" />
   <meta name="twitter:title" content="{{ page.title }}" />
-  <meta name="twitter:image:src" content="{{ site.url }}{{ page.image }}" />
-
-  {% include head.html %}
+  {% if page.image %}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ site.url }}{{ page.image }}" />
+  {% endif %} {% include head.html %}
 
   <div class="page-wrap">
     <div class="side-bar">
