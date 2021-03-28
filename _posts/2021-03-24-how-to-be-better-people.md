@@ -7,7 +7,7 @@ nav_order: 4
 has_children: true
 comments: true
 date: 2021-03-24
-image: /assets/images/thumbnails/2021-03-24-how-to-be-better-people.jpg
+image: /assets/images/thumbnails/2021-03-24-how-to-be-better-people.png
 summary: 긴 말 필요 없이 매우 추천하는 책이다. 이 책에서 문제라고 정의하는 '자기 기만'이 어떻게 조직에서 발생하는 여러가지 문제들(리더십 부재, 팀워크 저하, 의사소통 단절, 책임과 신뢰 부족 등)을 야기 시키는지 명확히 설명한다. 1부에서는 자기 기만, 즉 상자 안에 있는 것이 무엇인지 / 2부에서는 우리가 어떻게 상자 안으로 들어가게 되는지 / 3부에서는 어떻게 상자 밖으로 나와 최선의 행동을 할 수 있는지로 글이 전개된다.
 ---
 
