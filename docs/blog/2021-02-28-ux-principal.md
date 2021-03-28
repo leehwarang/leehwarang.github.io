@@ -8,6 +8,7 @@ has_children: true
 comments: true
 date: 2021-02-28
 image: /assets/images/thumbnails/2021-02-28-ux-principal.jpg
+summary: 회사의 프러덕트를 만들면서 기획, 디자인, 개발팀이 함께 UI/UX 를 고민하는 자리가 종종 있었다. 다른 회사는 잘 모르겠지만 우리는 기획서에 기능 정의 뿐만 아니라 러프한 화면 목업도 함께 나왔기 때문에 개발에 들어가기 전
 ---
 
 # 스티브 크룩, 『(사용자를) 생각하게 하지마』
