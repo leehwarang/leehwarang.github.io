@@ -6,9 +6,13 @@ nav_order: 8
 has_children: true
 comments: true
 date: 2021-05-15
+image: /assets/images/thumbnails/2021-05-15-better-code.png
+summary: 1) 코드를 작성하고 리뷰하는 방식 되돌아보기 2) 읽기 좋은 코드는 의도를 파악하기 좋은 코드다. 3) 그렇다면 무엇이 의도를 파악하기 좋은 코드일까?
 ---
 
 # 코드 리뷰와 읽기 좋은 코드에 대한 단상 (부제: 동작하는 코드를 넘어서)
+
+![210515-better-code](https://user-images.githubusercontent.com/18614517/118363251-6f4ade00-b5ce-11eb-850a-8ea906693584.png)
 
 우리 팀은 기본적으로 작업건에 대한 PR(Pull Request)을 올리고 리뷰를 받은 후 merge 한다. hotfix 이거나 팀 내 리소스, 일정이 촉박한 경우에는 approve 되지 않은 PR을 merge 하기도 하니 굉장히 빡세다고(?) 할 수는 없지만 그래도 코드 리뷰 시스템을 꽤 잘 운영하고 있다고 생각한다. (10개월 전부터 진행하고 있는 프로젝트 저장소에 지금까지 800개 이상의 PR이 올라왔고, 70% 이상은 리뷰되고 있다.) 최근에 코드 리뷰를 주고 받는 과정에서 '읽기 좋은 코드'가 무엇인지 생각해 볼 기회를 얻어, 부족함을 돌아보고 얻은 교훈을 정리해본다.
 
