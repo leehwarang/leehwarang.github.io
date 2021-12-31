@@ -6,6 +6,8 @@ grand_parent: Blogs
 nav_order: 8
 has_children: true
 comments: true
+date: 2021-12-31
+image: /assets/images/thumbnails/2021-12-31-retrospect.jpeg
 ---
 
 # 더 나은 기술 역량, 더 나은 제품, 더 나은 팀으로의 여정. 2년차 개발자의 2021년 회고
