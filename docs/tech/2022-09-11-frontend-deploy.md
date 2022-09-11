@@ -11,7 +11,7 @@ summary: 렌더링(DOM을 그리는 행위)을 Client 단에서 하는지, Serve
 
 # 배포 하면서 배우는 CSR(React)과 SSR(Next.js)
 
-CSR(Client-Side Rendering)과 SSR(Servier-Side Rendering) 에 대해서는 많이 들어보셨을거라고 생각합니다. React 는 기본적으로 CSR 방식으로 동작하는 UI 라이브러리이고, Next.js 는 SSR 과 Static Generation 을 지원하는 React Framework 이지요. 
+CSR(Client-Side Rendering)과 SSR(Server-Side Rendering) 에 대해서는 많이 들어보셨을거라고 생각합니다. React 는 기본적으로 CSR 방식으로 동작하는 UI 라이브러리이고, Next.js 는 SSR 과 Static Generation 을 지원하는 React Framework 이지요. 
 
 _렌더링(DOM을 그리는 행위)을 Client 단에서 하는지, Server 단에서 하는지의 차이 때문에 React 로 만든 앱과 Next.js 로 만든 앱의 배포 방식에서도 차이가 있습니다. 프론트엔드 서버가 해야 하는 일이 다르기 때문입니다._ 요즘 부쩍 devops 쪽에 관심이 생겨서, React 와 Next.js 로 만든 앱을 연습삼아 배포해 보았는데 이 과정에서 CSR 과 SSR 에 대해서도 이해가 조금 더 깊어진 것 같아 기록해봅니다. 
 
