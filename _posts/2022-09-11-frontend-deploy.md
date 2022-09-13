@@ -6,10 +6,13 @@ nav_order: 9
 has_children: true
 comments: true
 date: 2022-09-11
+image: /assets/images/thumbnails/2022-09-11-frontend-deploy.png
 summary: 렌더링(DOM을 그리는 행위)을 Client 단에서 하는지, Server 단에서 하는지의 차이 때문에 React 로 만든 앱과 Next.js 로 만든 앱의 배포 방식에서도 차이가 있습니다. 프론트엔드 서버가 해야 하는 일이 다르기 때문입니다.
 ---
 
 # 배포 하면서 배우는 CSR(React)과 SSR(Next.js)
+
+![2022-09-11-frontend-deploy](https://user-images.githubusercontent.com/18614517/189784896-cb89bb12-55e3-4593-b1e3-73227a8cb209.png)
 
 CSR(Client-Side Rendering)과 SSR(Server-Side Rendering) 에 대해서는 많이 들어보셨을거라고 생각합니다. React 는 기본적으로 CSR 방식으로 동작하는 UI 라이브러리이고, Next.js 는 SSR 과 Static Generation 을 지원하는 React Framework 이지요. 
 
@@ -25,7 +28,7 @@ _렌더링(DOM을 그리는 행위)을 Client 단에서 하는지, Server 단에
 
 이 중에서 응답받은 파일 중 제일 처음에 있는 HTML 파일 부터 살펴보겠습니다. 
 
-<img width="806" alt="react(2)" src="https://user-images.githubusercontent.com/18614517/189515740-848c95ae-b5be-4d28-9d84-3579268884a7.png">
+<img width="803" alt="react(2-1)" src="https://user-images.githubusercontent.com/18614517/189773453-69a1c9d3-2e22-4fa0-af3b-ae02feea76bf.png">
 
 Elements 탭에서 root 라는 id를 가지고 있는 div 태그 안에 여러개의 element 들이 포함되어 있습니다.
 그에 반해 응답 받은 HTML 을 살펴보면 root 라는 id를 가지고 있는 div 태그 안에는 비어있습니다. 네트워크 응답 화면에서 HTML 파일 아래에 bundle.js 라는 javascript 파일도 받았는데, 이 javascript 파일을 통해 element 들을 그립니다. Client-Side Rendering 의 동작하는 원리인데요, 이를 통해 React 앱을 어떻게 배포해야 할지 생각해봅시다. 
@@ -60,26 +63,64 @@ SSR 에 대한 니즈를 가지게 되면서 Next.js 를 선택하는 프론트�
 - Static Generation: build time에 각 페이지에서 해당하는 HTML 파일을 미리 만들어두고, 요청에 대해 HTML 을 재사용한다. 
 - Server-Side Rendeging: 요청이 오면 동적으로 HTML 파일을 만들어서 응답해준다. 
 
+
+
 (현실에서 그럴 일은 드물지만) `외부 API 호출이 필요 없는 상황`이라고 가정해보면 Next.js 로 만든 앱은 기본적으로 Static Generation 으로 동작하기 때문에, 배포한 후에 프론트엔드 서버가 해야 할 일이 거의 없습니다. React 로 만든 앱 처럼요! build 한 시점에서의 정적인 결과물들을 호스팅해주는 서비스에 올려두기만 하면 되는 거죠. 
 
-`반면 외부 API 호출을 해야 하지만, 이 API 가 응답해주는 데이터가 실시간성이 중요하지 않을 수도 있습니다.` 지난주에 API 호출 했을 때의 데이터와 오늘 API 호출 했을 때의 데이터가 달라지지 않다면 어떨까요? 요청이 올 때마다 API 를 호출하는 것 보다 build 하는 시점에 API 호출을 해서 데이터가 포함된 HTML 을 만들어 두고, 이 HTML 을 재사용하는게 이득일거에요. 외부 API 호출이 필요 없는 상황처럼, build 한 시점에서의 결과물들을 호스팅해주는 서비스에 올려두기만 하면 되겠지요. 
+`반면 외부 API 호출을 해야 하지만, 이 API 가 응답해주는 데이터가 실시간성이 중요하지 않을 수도 있습니다.` 지난주에 API 호출 했을 때의 데이터와 오늘 API 호출 했을 때의 데이터가 달라지지 않다면 어떨까요? 요청이 올 때마다 API 를 호출하는 것 보다 build 하는 시점에 API 호출을 해서 데이터가 포함된 HTML 을 만들어 두고, 이 HTML 을 재사용하는게 이득일거에요.(Next.js의 [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) 활용) 외부 API 호출이 필요 없는 상황처럼, build 한 시점에서의 결과물들을 호스팅해주는 서비스에 올려두기만 하면 되겠지요. 
 
-마지막으로 `외부 API 호출을 해야하고, 이 API 는 실시간으로 데이터가 달라진다면` 두 가지 옵션을 선택할 수 있습니다. 우리가 React 에서 부터 적용해오던 [Client-Side Rendering](https://nextjs.org/docs/basic-features/data-fetching/client-side) 방식을 사용하거나, Next.js의 getServierSideProps로 [Server-Side Rendering](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) 방식을 사용하면 됩니다. CSR 방식을 택하면 앞선 케이스들처럼 프론트엔드 서버가 해야할 일이 거의 없고, SSR 방식을 선택하면 요청이 올 때 마다 "API 를 호출해서 HTML을 동적으로 생성" 해주는 일을 추가로 해야 합니다. 
+마지막으로 `외부 API 호출을 해야하고, 이 API 는 실시간으로 데이터가 달라질 수 있다면` 두 가지 옵션을 선택할 수 있습니다. 우리가 React 에서 부터 적용해오던 [Client-Side Rendering](https://nextjs.org/docs/basic-features/data-fetching/client-side) 방식을 사용하거나, Next.js의 getServerSideProps로 [Server-Side Rendering](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) 방식을 사용하면 됩니다. 
+
+<img width="625" alt="nextjs(4)" src="https://user-images.githubusercontent.com/18614517/189783029-39c4720d-a756-4112-adb9-7b1e3bfcd7ff.png">
+
+<img width="667" alt="nextjs(5)" src="https://user-images.githubusercontent.com/18614517/189783051-ff28ff12-05cc-4b96-a393-a4f2b1c6c8a7.png">
+
+Next.js 공식 문서에서는 데이터를 빈번하게 업데이트해야 하는 페이지라면 굳이 pre-render 할 필요 없이 Client-Side 에서 데이터를 호출하고, 인증 정보를 요청하는 API 등 요청할 때  전체의 데이터가 포함된 페이지를 보여주어야 하는 경우에 getServerSideProps 를 사용하여 SSR 로 pre-render 하라고 설명하고 있습니다. 
+
+**CSR 방식을 택하면 앞선 케이스들처럼 프론트엔드 서버가 해야할 일이 거의 없고, SSR 방식을 선택하면 요청이 올 때 마다 "API 를 호출해서 HTML을 동적으로 생성" 해주는 일을 추가로 해야 합니다.**
+
+```javascript
+//page/server-side.js
+
+function ServerSidePage({ data }) {
+    return (
+        <>
+        <h1>Server-Side Page</h1>
+        <div>id: {data.title}</div>
+        </>
+    )
+}
+
+
+export async function getServerSideProps(context) {
+    const res = await fetch("https://jsonplaceholder.typicode.com/todos/1")
+    const data = await res.json()
+    return {
+        props: { data } 
+    }
+}
+
+export default ServerSidePage
+```
+
+<img width="1496" alt="nextjs(6)" src="https://user-images.githubusercontent.com/18614517/189783162-b638d626-90c4-4a08-8476-69fa4cc7e213.png">
+<center>getServerSideProps를 활용해서 데이터를 호출했을 때, HTML에 데이터가 포함되어 내려오는 화면</center>
+
 
 ## Next.js 앱 배포
 
-Next.js 로 앱을 만들면서 SSR 기능을 사용할 수도, 사용하지 않을 수도 있지만 사용한다는 것을 가정하고 배포 환경을 구성해야겠지요. 즉, Server-Side 에서 클라이언트의 요청에 대해 동적인 응답을 만드는  Server-Side 의 processing을 해주는 “웹 애플리케이션 서버”가 필요합니다. 
+Next.js 로 앱을 만들면서 SSR 기능을 사용할 수도, 사용하지 않을 수도 있지만 사용한다는 것을 가정하고 배포 환경을 구성해야겠지요. 즉, Server-Side 에서 클라이언트의 요청에 대해 동적인 응답을 만드는 Server-Side 의 processing 처리를 위한 “웹 애플리케이션 서버”가 필요합니다. 
 
 > 웹 서버와 웹 애플리케이션 서버
 
 지금까지 해당 글에서는 “프론트엔드 서버” 라는 용어를 사용했는데요. 사실 프론트엔드 서버라는 단어에는 웹 서버와 웹 애플리케이션(Web Application Server)로 역할이 다른 두 서버를 포함하고 있었습니다.
-웹 서버는 클라이언트에서 HTTP 프로토콜로 요청을 받고 정적인 파일들을 응답으로 전달합니다. 웹 애플리케이션 서버는 ServierSide에서 코드 실행을 통해 동적인 응답을 만들어주는 역할을 합니다. 내가 사용하는 언어/필요한 상황에 맞게 서버 환경을 구성할 수 있습니다. 
+웹 서버는 클라이언트에서 HTTP 프로토콜로 요청을 받고 정적인 파일들을 응답으로 전달합니다. 웹 애플리케이션 서버는 Server-Side에서 코드 실행을 통해 동적인 응답을 만들어주는 역할을 합니다. 내가 사용하는 언어/필요한 상황에 맞게 서버 환경을 구성할 수 있습니다. 
 
 이 쯤에서 앞서 잠깐 소개한 AWS의 [S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html) 문서도 한 번 읽어볼까요? 
 
 <img width="1315" alt="s3" src="https://user-images.githubusercontent.com/18614517/189521426-a6135c05-e852-44a1-9fba-742270fc9fba.png">
 
-S3는 정적인 웹사이트를 호스팅할 수 있지 PHP, JSP, ASP.NET 등 Servier-Side의 코드 실행이 필요한 동적인 웹사이트는 지원할 수 없다고 설명합니다. 웹 서버말고 웹 애플리케이션 서버가 필요하다는 것을 여기에서도 이야기 하고 있습니다. 
+S3는 정적인 웹사이트를 호스팅할 수 있지 PHP, JSP, ASP.NET 등 Servier-Side의 코드 실행이 필요한 동적인 웹사이트는 지원할 수 없다고 설명합니다. 웹 서버 이외에 웹 애플리케이션 서버가 필요하다는 것을 여기에서도 이야기 하고 있습니다. 
 
 
 <img width="1018" alt="nextjs(2)" src="https://user-images.githubusercontent.com/18614517/189522147-885f08d1-49d5-46ab-89a9-26c68a768110.png">
