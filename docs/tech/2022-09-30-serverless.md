@@ -6,7 +6,7 @@ nav_order: 10
 has_children: true
 comments: true
 date: 2022-09-30
-image: /assets/images/thumbnails/2022-09-30-serverless.png
+image: /assets/images/thumbnails/2022-09-30-serverless(2).png
 summary: 서버리스(Serverless) 라는 말을 처음 들었을 때, 의미를 알잘딱깔센으로 이해하기는 쉽지 않은 것 같아요. 프론트엔드 개발자의 입장에서 서버가 없다는건 요청이 왔을 때 응답을 내려주는 그 서버가 없다는건지, 백엔드 개발자를 서버 개발자라고도 많이 부르는데 백엔드의 코드가 필요 없다는건지 모호합니다. 
 ---
 
